@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Line } from "vue-chartjs";
 const props = defineProps<{
-	data: number;
+	data: any;
 }>();
 </script>
 

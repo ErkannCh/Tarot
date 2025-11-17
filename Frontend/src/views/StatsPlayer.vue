@@ -171,7 +171,7 @@ const takerBoutsStats = computed(() => {
 	for (const p of playsAsTaker.value) {
 		if (p.bouts == null) continue;
 		const b = p.bouts as 0 | 1 | 2 | 3;
-		const m = map[b];
+		const m = map[b]!;
 		m.t++;
 		m.sum += p.points;
 		if (p.points > 0) m.w++;
@@ -194,7 +194,7 @@ const takerHeatmap = computed(() => {
 		if (!c || !map[c]) continue;
 		const b = p.bouts ?? -1;
 		if (![0, 1, 2, 3].includes(b)) continue;
-		const bucket = map[c][b];
+		const bucket = map[c]![b as 0 | 1 | 2 | 3]!;
 		bucket.t++;
 		if (p.points > 0) bucket.w++;
 	}
@@ -252,7 +252,7 @@ const defenseContractDist = computed(() => {
 		garde_contre: 0,
 	};
 	for (const p of playsAsDefense.value) {
-		if (p.contract && map[p.contract] != null) map[p.contract]++;
+		if (p.contract && map[p.contract] != null) map[p.contract]!;
 	}
 	return map;
 });
