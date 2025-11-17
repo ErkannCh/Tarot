@@ -1,0 +1,324 @@
+:root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	--primary_color1: #920315;
+	--secondary_color1: #ba0017;
+	--third_color1: #ff8e9c;
+	--primary_color2: #026544;
+	--secondary_color2: #009d63;
+	--third_color2: #69ecb1;
+
+	--brand: var(--third_color2);
+	--brand-strong: var(--secondary_color2);
+	--accent: var(--third_color2);
+	--accent-strong: var(--secondary_color2);
+
+	--success: var(--secondary_color2);
+	--danger: var(--secondary_color1);
+
+	--radius-sm: 8px;
+	--radius-md: 14px;
+	--radius-lg: 20px;
+
+	--topbar-h: 64px;
+	--topbar-vpad: 20px;
+}
+
+:root[data-theme="light"] {
+	color-scheme: light;
+	--bg-color: #f4f6ff;
+	--bg-elev-1: #ffffff;
+	--bg-elev-2: #eef2ff;
+	--text-primary: #1d2142;
+	--text-secondary: #4e5775;
+	--muted: #7680a3;
+	--page-gradient-1: rgba(91, 143, 255, 0.24);
+	--page-gradient-2: rgba(91, 233, 255, 0.18);
+	--surface-border-subtle: rgba(26, 49, 122, 0.08);
+	--surface-border: rgba(26, 49, 122, 0.12);
+	--surface-border-strong: rgba(26, 49, 122, 0.18);
+	--surface-tint: rgba(15, 23, 42, 0.04);
+	--shadow-soft: 0 18px 36px rgba(45, 70, 170, 0.16);
+	--shadow-pop: 0 28px 52px rgba(54, 86, 185, 0.2);
+	color: var(--text-primary);
+	background-color: var(--bg-color);
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	color-scheme: dark;
+	--bg-color: #0b1020;
+	--bg-elev-1: #0f152d;
+	--bg-elev-2: #151c3c;
+	--text-primary: #e6ebff;
+	--text-secondary: #b9c2e8;
+	--muted: #7c86b2;
+	--page-gradient-1: rgba(139, 92, 246, 0.16);
+	--page-gradient-2: rgba(34, 211, 238, 0.14);
+	--surface-border-subtle: rgba(185, 194, 232, 0.08);
+	--surface-border: rgba(185, 194, 232, 0.12);
+	--surface-border-strong: rgba(185, 194, 232, 0.18);
+	--surface-tint: rgba(255, 255, 255, 0.02);
+	--shadow-soft: 0 12px 36px rgba(8, 12, 32, 0.35);
+	--shadow-pop: 0 22px 46px rgba(18, 28, 74, 0.55);
+	color: var(--text-primary);
+	background-color: var(--bg-color);
+}
+
+html {
+	background: radial-gradient(
+			1200px 800px at 10% -10%,
+			var(--page-gradient-1),
+			transparent 60%
+		),
+		radial-gradient(
+			900px 600px at 110% 10%,
+			var(--page-gradient-2),
+			transparent 55%
+		),
+		var(--bg-color) !important;
+	color: var(--text-primary);
+	scrollbar-gutter: stable both-edges;
+}
+
+.v-application {
+	background: transparent !important;
+	color: inherit;
+}
+
+/* Typography scale */
+h1,
+h2,
+h3 {
+	margin: 0 0 0.4rem;
+	font-weight: 700;
+	letter-spacing: 0.2px;
+}
+h1 {
+	font-size: clamp(1.8rem, 2.8vw + 1rem, 3rem);
+}
+h2 {
+	font-size: clamp(1.4rem, 1.4vw + 1rem, 2rem);
+	color: var(--text-secondary);
+}
+h3 {
+	font-size: 1.125rem;
+	color: var(--text-secondary);
+}
+p {
+	margin: 0.2rem 0 1rem;
+	color: var(--text-secondary);
+}
+
+/* Containers */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 24px;
+	width: 100%;
+	overflow-x: hidden; /* prevent child overflow from creating page scroll */
+}
+@media (max-width: 640px) {
+	.container {
+		padding: 16px 12px;
+	}
+}
+
+.card {
+	background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.02),
+			rgba(255, 255, 255, 0)
+		),
+		var(--bg-elev-1);
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-soft);
+	padding: 20px;
+	transition: transform 140ms ease, box-shadow 180ms ease,
+		border-color 160ms ease;
+}
+
+
+/* Inputs */
+input,
+select,
+textarea {
+	width: 100%;
+	padding: 10px 12px;
+	border-radius: 10px;
+	background: var(--bg-elev-1);
+	color: var(--text-primary);
+	border: 1px solid var(--surface-border-strong);
+	outline: none;
+	transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+input::placeholder,
+textarea::placeholder {
+	color: var(--muted);
+}
+input:focus,
+select:focus,
+textarea:focus {
+	border-color: var(--brand);
+	box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.22);
+}
+
+/* Vuetify fields: neutralize generic input styles inside v-field */
+.v-field input,
+.v-field textarea,
+.v-field select {
+	background: transparent !important;
+	border: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+.v-field input:focus,
+.v-field textarea:focus,
+.v-field select:focus {
+	box-shadow: none !important;
+}
+
+/* Restaure un padding interne confortable dans les champs Vuetify */
+.v-field .v-field__input {
+	padding-left: 12px !important;
+	padding-right: 12px !important;
+}
+
+/* Tags / Pills */
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	font-size: 0.875rem;
+	border-radius: 999px;
+	background: rgba(139, 92, 246, 0.14);
+	color: #e9ddff;
+	border: 1px solid rgba(139, 92, 246, 0.28);
+}
+
+/* Utility */
+.surface {
+	background: var(--bg-elev-1);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-soft);
+}
+.elev-2 {
+	background: var(--bg-elev-2);
+	box-shadow: var(--shadow-pop);
+}
+.muted {
+	color: var(--muted);
+}
+.row {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+.col {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+
+/* Divider */
+.divider {
+	height: 1px;
+	width: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(185, 194, 232, 0.18),
+		transparent
+	);
+	margin: 14px 0;
+}
+
+/* Subtle animated glow for hero elements */
+.glow {
+	position: relative;
+}
+.glow::after {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: inherit;
+	background: conic-gradient(
+		from 180deg at 50% 50%,
+		rgba(139, 92, 246, 0.5),
+		rgba(34, 211, 238, 0.5),
+		rgba(139, 92, 246, 0.5)
+	);
+	filter: blur(24px);
+	opacity: 0.18;
+	z-index: -1;
+}
+
+/* Table tweaks & motion utilities */
+.table tr:hover td {
+	background: rgba(185, 194, 232, 0.06);
+}
+.table.compact th,
+.table.compact td {
+	padding: 8px 6px;
+}
+
+/* Responsive tables */
+@media (max-width: 640px) {
+	.table {
+		display: block !important;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.table thead,
+	.table tbody,
+	.table tr,
+	.table th,
+	.table td {
+		white-space: nowrap;
+	}
+}
+
+/* Dialog tweaks on mobile */
+@media (max-width: 600px) {
+	.v-dialog .v-card {
+		margin: 8px;
+		border-radius: 12px;
+	}
+}
+
+
+.fade-in {
+	animation: fadeIn 220ms ease both;
+}
+.slide-up {
+	animation: slideUp 220ms ease both;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

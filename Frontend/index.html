@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/x-icon" href="./src/assets/logo.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- HTML Meta Tags -->
+		<title>Tarot Tracker</title>
+		<meta
+			name="description"
+			content="Stats de parties, preneurs, réussites : tout ton tarot au même endroit."
+		/>
+
+		<!-- Facebook Meta Tags -->
+		<meta
+			property="og:url"
+			content="https://olivedrab-magpie-136901.hostingersite.com"
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Tarot Tracker" />
+		<meta
+			property="og:description"
+			content="Stats de parties, preneurs, réussites : tout ton tarot au même endroit."
+		/>
+		<meta
+			property="og:image"
+			content="https://opengraph.b-cdn.net/production/images/c87188ad-1cbd-4dc1-baaf-407a4fd8f753.png?token=6QvheAqjFE_p3TQpp3mG4yyK73DsQDlKS6H8_P6NZwY&height=1024&width=1024&expires=33298418019"
+		/>
+
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			property="twitter:domain"
+			content="olivedrab-magpie-136901.hostingersite.com"
+		/>
+		<meta
+			property="twitter:url"
+			content="https://olivedrab-magpie-136901.hostingersite.com"
+		/>
+		<meta name="twitter:title" content="Tarot Tracker" />
+		<meta
+			name="twitter:description"
+			content="Stats de parties, preneurs, réussites : tout ton tarot au même endroit."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://opengraph.b-cdn.net/production/images/c87188ad-1cbd-4dc1-baaf-407a4fd8f753.png?token=6QvheAqjFE_p3TQpp3mG4yyK73DsQDlKS6H8_P6NZwY&height=1024&width=1024&expires=33298418019"
+		/>
+		<script>
+			(function () {
+				try {
+					var t = localStorage.getItem("settings:theme");
+					if (t === "light") {
+						var r = document.documentElement;
+						r.style.setProperty("--bg-color", "#f7f8fc");
+						r.style.setProperty("--bg-elev-1", "#ffffff");
+						r.style.setProperty("--bg-elev-2", "#f0f2f9");
+						r.style.setProperty("--text-primary", "#171a2f");
+						r.style.setProperty("--text-secondary", "#394166");
+						r.style.setProperty("--muted", "#6b7399");
+					}
+				} catch (e) {}
+			})();
+		</script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>

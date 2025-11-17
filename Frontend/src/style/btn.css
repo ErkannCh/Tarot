@@ -1,0 +1,82 @@
+.btn {
+	appearance: none;
+	border: none;
+	outline: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 10px 16px;
+	font-weight: 600;
+	border-radius: var(--radius-sm);
+	color: var(--text-primary);
+	box-shadow: 0 6px 18px rgba(3, 166, 90, 0.35);
+	cursor: pointer;
+	transition: transform 120ms ease, box-shadow 150ms ease, filter 150ms ease,
+		background 160ms ease;
+}
+.btn:hover {
+	transform: translateY(-1px);
+	filter: brightness(1.04);
+}
+.btn:active {
+	transform: translateY(0);
+	filter: brightness(0.96);
+}
+
+.btn-primary {
+	background: linear-gradient(
+		180deg,
+		var(--secondary_color2),
+		var(--primary_color2)
+	);
+	box-shadow: 0 6px 18px rgba(3, 166, 90, 0.45);
+	color: #fff;
+}
+.btn-primary:hover {
+	box-shadow: 0 10px 26px var(--secondary_color2);
+	filter: brightness(1.03);
+}
+.btn-primary:active {
+	filter: brightness(0.97);
+}
+
+.btn-choice:hover {
+	filter: brightness(1.08);
+}
+.btn-choice.active {
+	background: linear-gradient(
+		180deg,
+		var(--primary_color2),
+		var(--secondary_color2)
+	);
+}
+
+.btn-ghost {
+	background: transparent;
+	color: var(--text-primary);
+	border: 1px solid var(--surface-border-strong);
+}
+.btn-ghost:hover {
+	box-shadow: 0 10px 26px var(--primary_color2);
+	filter: brightness(1.03);
+	border-color: rgba(185, 194, 232, 0.3);
+}
+.btn-ghost:active {
+	background: rgba(185, 194, 232, 0.18);
+}
+
+.btn-danger {
+	color: #fff;
+	box-shadow: 0 3px 10px var(--primary_color1);
+	border: 1px solid var(--secondary_color1);
+	background: linear-gradient(
+		180deg,
+		var(--secondary_color1),
+		var(--primary_color1)
+	);
+}
+.btn-danger:hover {
+	box-shadow: 0 10px 26px var(--primary_color1);
+	filter: brightness(1.03);
+}
